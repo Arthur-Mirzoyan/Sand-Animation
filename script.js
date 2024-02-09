@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 const canvasWidth = document.body.offsetWidth - 10;
 const canvasHeight = document.body.offsetHeight - 10;
 
-var cellSize = 4;
+var cellSize = 5;
 var rows = Math.floor(canvasHeight / cellSize);
 var cols = Math.floor(canvasWidth / cellSize);
 var grid = generateMatrix(rows, cols, 0);
