@@ -15,6 +15,7 @@ var hue = minHue;
 var hueStep = 0.5;
 var spots = [];
 var polygonSize = 6;
+var sandStyle = "arc"; // rect
 
 window.onload = () => {
 	canvas.width = canvasWidth;
@@ -31,7 +32,14 @@ canvas.addEventListener("touchmove", (e) => onMove(e.touches[0]));
 function drawSand(r, c, color) {
 	ctx.beginPath();
 	ctx.fillStyle = color;
-	ctx.fillRect(c * cellSize, r * cellSize, cellSize, cellSize);
+
+	if (sandStyle == "rect") ctx.fillRect(c * cellSize, r * cellSize, cellSize, cellSize);
+	else {
+		ctx.arc(c * cellSize, r * cellSize, cellSize * 0.5, 0, Math.PI * 2);
+		ctx.fillStyle = color;
+		ctx.fill();
+	}
+
 	ctx.closePath();
 }
 
